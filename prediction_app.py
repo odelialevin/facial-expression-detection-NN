@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import os
 
 RECT_COLOR = (255,0,0)
 TEXT_COLOR = (0,0,255)
@@ -45,8 +46,10 @@ def main_loop(capture):
         if cv2.waitKey(1) & 0xFF == ord('q') or cv2.waitKey(1) & 0xFF == 27:
             break
     cv2.destroyAllWindows()
+
 def start_app(model):
-    HAARCASCADE_PATH = 'D:/Anaconda/envs/tf-gpu/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml'
+    cv2_path = os.path.dirname(cv2.__file__)
+    HAARCASCADE_PATH = cv2_path + '/data/haarcascade_frontalface_default.xml'
     face_detector = cv2.CascadeClassifier(HAARCASCADE_PATH)
 
     main_loop(CameraCapture(model, face_detector))
