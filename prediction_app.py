@@ -48,8 +48,7 @@ def main_loop(capture):
     cv2.destroyAllWindows()
 
 def start_app(model):
-    cv2_path = os.path.dirname(cv2.__file__)
-    HAARCASCADE_PATH = cv2_path + '/data/haarcascade_frontalface_default.xml'
+    HAARCASCADE_PATH = 'haarcascade_frontalface_default.xml'
     face_detector = cv2.CascadeClassifier(HAARCASCADE_PATH)
 
     main_loop(CameraCapture(model, face_detector))
