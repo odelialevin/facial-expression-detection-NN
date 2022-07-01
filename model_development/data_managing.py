@@ -4,11 +4,6 @@ import tensorflow as tf
 TRAIN_PATH = 'model_development/data/train'
 TEST_PATH = 'model_development/data/test'
 
-def init(root=''):
-    global TRAIN_PATH, TEST_PATH
-    TRAIN_PATH = root + '/' + TRAIN_PATH
-    TEST_PATH = root + '/' + TEST_PATH
-
 def print_train_dir():
     for expression in os.listdir('model_development/data/train'):
         print(str(len(os.listdir(f'data/train/{expression}'))) +f' {expression} images')
